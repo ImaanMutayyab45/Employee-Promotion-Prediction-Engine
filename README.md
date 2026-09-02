@@ -46,9 +46,7 @@ Promotion decisions inside most organizations are inconsistent - shaped by manag
 ├── Capstone_Project_Outline.md          # Project Outline
 └── README.md                            # Project Details
 ```
-```
 ### Team Roles
-
 | Member | Responsibility |
 |---|---|
 | Imaan Mutayyab | Data acquisition, cleaning, and exploratory data analysis |
