@@ -30,21 +30,25 @@ Promotion decisions inside most organizations are inconsistent - shaped by manag
 ### 📂 Repository Structure
 
 ```text
-├── data/
-│   ├── train.csv                         # Raw Training Dataset
-│   ├── test.csv                          # Raw Testing Dataset
-│   ├── cleaned_promotion_data.csv        # Cleaned Data
-│   └── preprocessed_promotion_data.csv   # Preprocessed Data
-├── notebooks/
-│   ├── Employee-Promotion-Prediction-Engine.ipynb
-│   └── Feature-Engineering-Baseline-Model.ipynb
-├── plots/
-│   ├── class_distribution.png
-│   ├── confusion_matrix.png
-│   ├── feature_importance.png
-│   └── roc_curve.png
-├── Capstone_Project_Outline.md          # Project Outline
-└── README.md                            # Project Details
+.
+├── train.csv                                     # Raw training data with is_promoted labels
+├── test.csv                                      # Raw held-out data for predictions
+├── cleaned_promotion_data.csv                    # Output of Section 2: cleaned, deduplicated data
+├── preprocessed_promotion_data.csv               # Output of Section 4: feature-engineered data
+├── Employee-Promotion-Prediction-Engine-FINAL.ipynb  # Final notebook: EDA, feature engineering, modeling, dashboard code
+├── app.py                                        # Streamlit dashboard app
+├── model.pkl                                     # Trained Random Forest model (stored via Git LFS)
+├── model_columns.pkl                             # Column order expected by the model (stored via Git LFS)
+├── requirements.txt                              # Python dependencies for running app.py / Streamlit Cloud
+├── confusion_matrix_baseline.png                 # Logistic Regression confusion matrix
+├── confusion_matrix_rf.png                       # Random Forest confusion matrix
+├── feature_importance_baseline.png               # Logistic Regression top feature coefficients
+├── feature_importance_rf.png                     # Random Forest top feature importances
+├── roc_curve_baseline.png                        # Logistic Regression ROC curve
+├── roc_curve_rf.png                              # Random Forest ROC curve
+├── Capstone-Project-Outline.md                   # Full project brief
+├── .gitattributes                                # Marks model.pkl / model_columns.pkl for Git LFS
+└── README.md                                     # This file
 ```
 ### Team Roles
 | Member | Responsibility |
@@ -52,7 +56,7 @@ Promotion decisions inside most organizations are inconsistent - shaped by manag
 | Imaan Mutayyab | Data acquisition, cleaning, and exploratory data analysis |
 | Nimra Farooq | Feature engineering | Baseline Modeling
 | Sofia Rashid Abdul Rashid| Modeling (Logistic Regression + Random Forest, class imbalance handling) |
-| Asifa Bibi| Dashboard / employee lookup tool |
+| Nimra Farooq & Imaan Mutayyab | Dashboard / employee lookup tool |
 
 ### Why This Approach (vs. Just Asking an LLM)
 A general-purpose language model can describe typical promotion criteria, but it can't learn what actually predicted promotion in this company's specific historical data. This project instead produces calibrated, per-employee probabilities and feature-importance explanations that are auditable and defensible - important given the fairness and compliance weight that promotion decisions carry.
