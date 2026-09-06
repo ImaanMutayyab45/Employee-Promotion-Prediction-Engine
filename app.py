@@ -62,9 +62,7 @@ with tab3:
     training_score = st.slider("Training Score", 0, 100, default_score)
     if 'avg_training_score' in sample.columns:
         sample['avg_training_score'] = training_score
-    # Bug fix: the model relies heavily on training_score_bucket (a derived feature from Section 4.1),
-    # not just the raw score. Moving the slider must recompute the bucket too, or the model keeps
-    # "seeing" whichever bucket the original sample row happened to have, and the probability barely moves.
+
     if 'training_score_bucket' in sample.columns:
         sample['training_score_bucket'] = pd.cut(
             [training_score], bins=[-1, 40, 60, 80, 100],
